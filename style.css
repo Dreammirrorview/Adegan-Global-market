@@ -1,0 +1,815 @@
+/* Adegan Global Market - Premium Transparent Mirror Design */
+
+/* ==================== RESET & BASE STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --accent-color: #e94560;
+    --gold-color: #ffd700;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    min-height: 100vh;
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* ==================== SWIMMING WALL ANIMATION ==================== */
+.swimming-wall {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.swimming-text {
+    position: absolute;
+    font-size: 4rem;
+    font-weight: bold;
+    color: rgba(255, 215, 0, 0.1);
+    text-transform: uppercase;
+    animation: swim 30s linear infinite;
+    white-space: nowrap;
+}
+
+.swimming-text:nth-child(1) {
+    top: 10%;
+    animation-delay: 0s;
+    animation-duration: 35s;
+}
+
+.swimming-text:nth-child(2) {
+    top: 30%;
+    animation-delay: 5s;
+    animation-duration: 40s;
+    animation-direction: reverse;
+}
+
+.swimming-text:nth-child(3) {
+    top: 50%;
+    animation-delay: 10s;
+    animation-duration: 38s;
+}
+
+.swimming-text:nth-child(4) {
+    top: 70%;
+    animation-delay: 15s;
+    animation-duration: 42s;
+    animation-direction: reverse;
+}
+
+@keyframes swim {
+    0% {
+        transform: translateX(-100%) rotate(-5deg);
+        opacity: 0.05;
+    }
+    50% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translateX(100vw) rotate(5deg);
+        opacity: 0.05;
+    }
+}
+
+/* ==================== TRANSPARENT MIRROR EFFECT ==================== */
+.mirror-container {
+    position: relative;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+}
+
+.mirror-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== NAVIGATION ==================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(26, 26, 46, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    border-bottom: 2px solid var(--gold-color);
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--gold-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.nav-links a:hover {
+    color: var(--gold-color);
+    background: var(--glass-bg);
+}
+
+/* ==================== SLIDING NAVIGATION ==================== */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slide-content {
+    text-align: center;
+    max-width: 800px;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== COVER PAGE STYLES ==================== */
+.cover-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.brand-title {
+    font-size: 4rem;
+    font-weight: bold;
+    color: var(--gold-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--gold-color), 0 0 20px var(--gold-color);
+    }
+    to {
+        text-shadow: 0 0 20px var(--gold-color), 0 0 40px var(--gold-color), 0 0 60px var(--gold-color);
+    }
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+    background: linear-gradient(135deg, var(--accent-color), #ff6b6b);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.6);
+}
+
+/* ==================== LOGIN STYLES ==================== */
+.login-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem;
+    margin-top: 10vh;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.form-input {
+    padding: 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--gold-color);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.forgot-password {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* ==================== DASHBOARD STYLES ==================== */
+.dashboard {
+    padding: 6rem 2rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--glass-border);
+}
+
+.dashboard-title {
+    font-size: 2.5rem;
+    color: var(--gold-color);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--gold-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ==================== ADMIN DASHBOARD STYLES ==================== */
+.admin-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.control-panel {
+    padding: 1.5rem;
+}
+
+.panel-title {
+    font-size: 1.3rem;
+    color: var(--gold-color);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.customer-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.customer-table th,
+.customer-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.customer-table th {
+    background: var(--glass-bg);
+    color: var(--gold-color);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.customer-table tr:hover {
+    background: var(--glass-bg);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-action {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-credit {
+    background: #28a745;
+    color: white;
+}
+
+.btn-debit {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-view {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-action:hover {
+    transform: scale(1.05);
+}
+
+/* ==================== TRANSACTION STYLES ==================== */
+.transaction-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.transaction-type {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.transaction-type button {
+    flex: 1;
+    padding: 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.transaction-type button.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.transaction-type button:hover {
+    background: var(--glass-border);
+}
+
+.transaction-history {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.transaction-item {
+    padding: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transaction-item.credit {
+    border-left: 4px solid #28a745;
+}
+
+.transaction-item.debit {
+    border-left: 4px solid #dc3545;
+}
+
+.transaction-amount {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.transaction-amount.credit {
+    color: #28a745;
+}
+
+.transaction-amount.debit {
+    color: #dc3545;
+}
+
+/* ==================== CUSTOMER DASHBOARD STYLES ==================== */
+.customer-profile {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--gold-color);
+    margin-bottom: 1rem;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: left;
+}
+
+.profile-detail {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.profile-detail strong {
+    color: var(--text-primary);
+}
+
+/* ==================== PRODUCT UPLOAD STYLES ==================== */
+.upload-section {
+    margin-bottom: 2rem;
+}
+
+.upload-form {
+    display: grid;
+    gap: 1rem;
+}
+
+.upload-image-preview {
+    width: 100%;
+    height: 200px;
+    background: var(--glass-bg);
+    border: 2px dashed var(--glass-border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-image-preview:hover {
+    border-color: var(--gold-color);
+    background: rgba(255, 215, 0, 0.05);
+}
+
+.upload-image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.product-category {
+    padding: 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+/* ==================== PUBLIC PRODUCT WALL STYLES ==================== */
+.product-wall {
+    padding: 6rem 2rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.category-filter {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.category-btn {
+    padding: 0.8rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background: var(--gold-color);
+    color: var(--primary-color);
+    border-color: var(--gold-color);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--gold-color);
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: var(--gold-color);
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.product-owner {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.order-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--accent-color), #ff6b6b);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.order-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+}
+
+/* ==================== ORDER MODAL STYLES ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    padding: 2rem;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: var(--gold-color);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--text-primary);
+}
+
+/* ==================== FOOTER STYLES ==================== */
+.footer {
+    background: rgba(26, 26, 46, 0.9);
+    padding: 2rem;
+    text-align: center;
+    margin-top: 4rem;
+    border-top: 2px solid var(--gold-color);
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.footer-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--gold-color);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .brand-title {
+        font-size: 2.5rem;
+    }
+
+    .customer-profile {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-controls {
+        grid-template-columns: 1fr;
+    }
+
+    .category-filter {
+        justify-content: center;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== CONTACT BUTTON ==================== */
+.contact-admin-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--gold-color), #ffcc00);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    z-index: 1000;
+}
+
+.contact-admin-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+}
+
+/* ==================== LOADING SPINNER ==================== */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--glass-border);
+    border-top: 5px solid var(--gold-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
