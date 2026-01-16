@@ -1,0 +1,47 @@
+.
+├── PROJECT_SUMMARY.md
+├── README.md
+├── adegan-global-market
+│   ├── admin.html
+│   ├── cover.html
+│   ├── css
+│   │   └── style.css
+│   ├── customer.html
+│   ├── index.html
+│   ├── js
+│   │   └── app.js
+│   └── login.html
+├── adegan-market
+│   ├── admin.html
+│   ├── cover.html
+│   ├── css
+│   │   └── style.css
+│   ├── customer.html
+│   ├── index.html
+│   ├── js
+│   │   └── app.js
+│   └── login.html
+├── adegan-student-market
+│   ├── admin.html
+│   ├── cover.html
+│   ├── css
+│   │   └── style.css
+│   ├── customer.html
+│   ├── index.html
+│   ├── js
+│   │   └── app.js
+│   └── login.html
+├── outputs
+│   ├── workspace_output_1768561114_6384.txt
+│   ├── workspace_output_1768561120_7492.txt
+│   ├── workspace_output_1768561123_8403.txt
+│   ├── workspace_output_1768561125_8816.txt
+│   └── workspace_output_1768561468_2789.txt
+├── payment-system-docs
+│   ├── architecture-overview.md
+│   ├── legal-documents.md
+│   ├── payment-integration-guide.md
+│   └── quick-start-guide.md
+└── todo.md
+
+12 directories, 33 files

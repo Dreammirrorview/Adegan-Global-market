@@ -1,0 +1,8 @@
+  814 adegan-market/css/style.css
+  560 adegan-market/js/app.js
+  249 adegan-market/admin.html
+  120 adegan-market/cover.html
+  253 adegan-market/customer.html
+  193 adegan-market/index.html
+   91 adegan-market/login.html
+ 2280 total
