@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adegan Global Enterprise - Admin Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Swimming Wall Background -->
+    <div class="swimming-wall">
+        <div class="swimming-text">Admin Dashboard</div>
+        <div class="swimming-text">Management</div>
+        <div class="swimming-text">Secure Control</div>
+        <div class="swimming-text">Adegan Global</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">Admin Dashboard</div>
+        <ul class="nav-links">
+            <li><a href="cover.html">Home</a></li>
+            <li><a href="index.html">Products Wall</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard">
+        <!-- Header -->
+        <div class="dashboard-header mirror-container" style="padding: 2rem;">
+            <h1 class="dashboard-title">Admin Dashboard</h1>
+            <p style="color: var(--text-secondary);">Welcome, Administrator - Manage customers, transactions, and monitor system activities</p>
+        </div>
+
+        <!-- Stats Overview -->
+        <div class="dashboard-stats">
+            <div class="stat-card mirror-container">
+                <div class="stat-number" id="totalCustomers">0</div>
+                <div class="stat-label">Total Customers</div>
+            </div>
+            <div class="stat-card mirror-container">
+                <div class="stat-number" id="totalProducts">0</div>
+                <div class="stat-label">Active Products</div>
+            </div>
+            <div class="stat-card mirror-container">
+                <div class="stat-number" id="totalTransactions">0</div>
+                <div class="stat-label">Transactions</div>
+            </div>
+            <div class="stat-card mirror-container">
+                <div class="stat-number" id="totalVolume">₦0</div>
+                <div class="stat-label">Total Volume</div>
+            </div>
+        </div>
+
+        <!-- Admin Controls -->
+        <div class="admin-controls">
+            <!-- Create Customer -->
+            <div class="control-panel mirror-container">
+                <h3 class="panel-title">Create New Customer Account</h3>
+                <form id="createCustomerForm">
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="customerName" class="form-input" required placeholder="Customer's full name">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="customerEmail" class="form-input" required placeholder="customer@email.com">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Phone Number</label>
+                        <input type="tel" id="customerPhone" class="form-input" required placeholder="+234XXXXXXXXXX">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Address</label>
+                        <input type="text" id="customerAddress" class="form-input" required placeholder="Full address">
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Create Account</button>
+                </form>
+            </div>
+
+            <!-- Credit Customer -->
+            <div class="control-panel mirror-container">
+                <h3 class="panel-title">Credit Customer Account</h3>
+                <form id="creditForm">
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Select Customer</label>
+                        <select id="creditCustomerId" class="product-category" required></select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Amount (₦)</label>
+                        <input type="number" id="creditAmount" class="form-input" required placeholder="Enter amount">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Description</label>
+                        <input type="text" id="creditDescription" class="form-input" required placeholder="Transaction description">
+                    </div>
+                    <button type="submit" class="cta-button" style="background: #28a745; width: 100%;">Credit Account</button>
+                </form>
+            </div>
+
+            <!-- Debit Customer -->
+            <div class="control-panel mirror-container">
+                <h3 class="panel-title">Debit Customer Account</h3>
+                <form id="debitForm">
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Select Customer</label>
+                        <select id="debitCustomerId" class="product-category" required></select>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Amount (₦)</label>
+                        <input type="number" id="debitAmount" class="form-input" required placeholder="Enter amount">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Description</label>
+                        <input type="text" id="debitDescription" class="form-input" required placeholder="Transaction description">
+                    </div>
+                    <button type="submit" class="cta-button" style="background: #dc3545; width: 100%;">Debit Account</button>
+                </form>
+            </div>
+
+            <!-- Transfer to Bank -->
+            <div class="control-panel mirror-container">
+                <h3 class="panel-title">Transfer to Other Bank</h3>
+                <form id="transferForm">
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Recipient Name</label>
+                        <input type="text" id="recipientName" class="form-input" required placeholder="Account holder name">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Recipient Account</label>
+                        <input type="text" id="recipientAccount" class="form-input" required placeholder="Account number">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Bank Name</label>
+                        <input type="text" id="recipientBank" class="form-input" required placeholder="Bank name">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Amount (₦)</label>
+                        <input type="number" id="transferAmount" class="form-input" required placeholder="Enter amount">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label class="form-label">Purpose</label>
+                        <input type="text" id="transferPurpose" class="form-input" required placeholder="Transfer purpose">
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Transfer Funds</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Customer List -->
+        <div class="mirror-container" style="padding: 2rem; margin-bottom: 2rem;">
+            <h3 class="panel-title">Customer Management</h3>
+            <div style="overflow-x: auto;">
+                <table class="customer-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Account Number</th>
+                            <th>Serial Number</th>
+                            <th>Balance</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTableBody">
+                        <!-- Customer rows will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="mirror-container" style="padding: 2rem;">
+            <h3 class="panel-title">Recent Transactions</h3>
+            <div id="transactionHistory" class="transaction-history">
+                <!-- Transactions will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Account Details -->
+        <div class="mirror-container" style="padding: 2rem; margin-bottom: 2rem;">
+            <h3 class="panel-title">Admin Account Details</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <div>
+                    <p style="color: var(--text-secondary);">Account Number:</p>
+                    <p style="color: var(--gold-color); font-size: 1.3rem; font-weight: bold;">0000000000</p>
+                </div>
+                <div>
+                    <p style="color: var(--text-secondary);">Account Name:</p>
+                    <p style="color: var(--text-primary); font-size: 1.1rem;">Adegan Global Enterprise</p>
+                </div>
+                <div>
+                    <p style="color: var(--text-secondary);">Wallet Address:</p>
+                    <p style="color: var(--text-primary); font-size: 1.1rem;">adegan-wallet-main</p>
+                </div>
+                <div>
+                    <p style="color: var(--text-secondary);">Current Balance:</p>
+                    <p style="color: #28a745; font-size: 1.3rem; font-weight: bold;">₦0.00</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monitor Links -->
+        <div class="mirror-container" style="padding: 2rem;">
+            <h3 class="panel-title">System Monitoring</h3>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <a href="index.html" class="cta-button" style="text-decoration: none; display: inline-block;">View Product Wall</a>
+                <a href="customer.html" class="cta-button" style="text-decoration: none; display: inline-block;">View Customer Dashboard</a>
+                <a href="cover.html" class="cta-button" style="text-decoration: none; display: inline-block;">View Cover Page</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Details Modal -->
+    <div id="customerModal" class="modal">
+        <div class="modal-content mirror-container">
+            <div class="modal-header">
+                <h3 class="modal-title">Customer Details</h3>
+                <button class="modal-close" onclick="closeModal('customerModal')">&times;</button>
+            </div>
+            <div style="line-height: 2;">
+                <p><strong>Name:</strong> <span id="modalCustomerName"></span></p>
+                <p><strong>Email:</strong> <span id="modalCustomerEmail"></span></p>
+                <p><strong>Phone:</strong> <span id="modalCustomerPhone"></span></p>
+                <p><strong>Address:</strong> <span id="modalCustomerAddress"></span></p>
+                <p><strong>Account Number:</strong> <span id="modalCustomerAccount"></span></p>
+                <p><strong>Serial Number:</strong> <span id="modalCustomerSerial"></span></p>
+                <p><strong>Balance:</strong> <span id="modalCustomerBalance" style="color: #28a745; font-weight: bold;"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Admin Button -->
+    <button id="contactAdminBtn" class="contact-admin-btn" onclick="handleContactAdmin()">
+        Contact Admin
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2024 Adegan Global Enterprise. All rights reserved.</p>
+        <p class="footer-text">Admin Dashboard - Restricted Access</p>
+        <a href="mailto:adegan95@gmail.com" class="footer-link">Contact: adegan95@gmail.com</a>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

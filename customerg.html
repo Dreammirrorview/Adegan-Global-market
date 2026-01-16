@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adegan Global Enterprise - Customer Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+    <!-- Swimming Wall Background -->
+    <div class="swimming-wall">
+        <div class="swimming-text">Customer Dashboard</div>
+        <div class="swimming-text">My Account</div>
+        <div class="swimming-text">Upload Products</div>
+        <div class="swimming-text">Adegan Global</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-logo">Customer Dashboard</div>
+        <ul class="nav-links">
+            <li><a href="cover.html">Home</a></li>
+            <li><a href="index.html">Products Wall</a></li>
+            <li><a href="login.html">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard">
+        <!-- Header -->
+        <div class="dashboard-header mirror-container" style="padding: 2rem;">
+            <h1 class="dashboard-title">Customer Dashboard</h1>
+            <p style="color: var(--text-secondary);">Manage your account, upload products, and track transactions</p>
+        </div>
+
+        <!-- Customer Profile -->
+        <div class="customer-profile">
+            <div class="profile-card mirror-container" style="padding: 2rem;">
+                <img src="https://via.placeholder.com/150" alt="Profile" class="profile-image" id="profileImage">
+                <h3 style="color: var(--gold-color); margin-bottom: 1rem;" id="customerName">Customer Name</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;" id="customerRole">Customer</p>
+                <p style="color: var(--text-secondary);">Member since: <span id="memberSince">2024</span></p>
+            </div>
+
+            <div class="profile-info mirror-container" style="padding: 2rem;">
+                <h3 style="color: var(--gold-color); margin-bottom: 1.5rem;">Account Information</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>
+                        <p class="profile-detail"><strong>Email:</strong> <span id="email"></span></p>
+                        <p class="profile-detail"><strong>Phone:</strong> <span id="phone"></span></p>
+                        <p class="profile-detail"><strong>Address:</strong> <span id="address"></span></p>
+                    </div>
+                    <div>
+                        <p class="profile-detail"><strong>Account Number:</strong> <span id="accountNumber" style="color: var(--gold-color);"></span></p>
+                        <p class="profile-detail"><strong>Serial Number:</strong> <span id="serialNumber"></span></p>
+                        <p class="profile-detail"><strong>Balance:</strong> <span id="balance" style="color: #28a745; font-weight: bold; font-size: 1.2rem;"></span></p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--glass-border);">
+                    <p style="color: var(--text-secondary);"><strong>Company Name:</strong> Adegan Global Enterprise</p>
+                    <p style="color: var(--text-secondary);"><strong>Owner:</strong> Olawale Abdul-ganiyu</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Account Stats -->
+        <div class="dashboard-stats">
+            <div class="stat-card mirror-container">
+                <div class="stat-number" id="myProducts">0</div>
+                <div class="stat-label">My Products</div>
+            </div>
+            <div class="stat-card mirror-container">
+                <div class="stat-number" id="myOrders">0</div>
+                <div class="stat-label">Orders Received</div>
+            </div>
+            <div class="stat-card mirror-container">
+                <div class="stat-number" id="accountBalance">₦0</div>
+                <div class="stat-label">Account Balance</div>
+            </div>
+            <div class="stat-card mirror-container">
+                <div class="stat-number" id="completedSales">0</div>
+                <div class="stat-label">Completed Sales</div>
+            </div>
+        </div>
+
+        <!-- Product Upload Section -->
+        <div class="mirror-container upload-section" style="padding: 2rem;">
+            <h3 class="panel-title">Upload New Product</h3>
+            <form id="uploadProductForm" class="upload-form">
+                <div class="form-group">
+                    <label class="form-label">Product Image</label>
+                    <div class="upload-image-preview" onclick="document.getElementById('productImageInput').click()">
+                        <img id="productImage" src="" alt="Product Preview" style="display: none;">
+                        <span id="imagePlaceholder" style="color: var(--text-secondary);">Click to upload or snap image</span>
+                    </div>
+                    <input type="file" id="productImageInput" accept="image/*" style="display: none;" onchange="previewImage(event)">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Product Name</label>
+                    <input type="text" id="productName" class="form-input" required placeholder="Enter product name">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Category</label>
+                    <select id="productCategory" class="product-category" required>
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Gadgets">Gadgets</option>
+                        <option value="Building Materials">Building Materials</option>
+                        <option value="Body Wears">Body Wears</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Price (₦)</label>
+                    <input type="number" id="productPrice" class="form-input" required placeholder="Enter product price">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Description</label>
+                    <textarea id="productDescription" class="form-input" rows="4" required placeholder="Describe your product in detail"></textarea>
+                </div>
+
+                <button type="submit" class="cta-button" style="width: 100%;">Upload Product</button>
+            </form>
+        </div>
+
+        <!-- My Products -->
+        <div class="mirror-container" style="padding: 2rem; margin-bottom: 2rem;">
+            <h3 class="panel-title">My Products</h3>
+            <div id="myProductsGrid" class="products-grid">
+                <!-- Products will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- My Transactions -->
+        <div class="mirror-container" style="padding: 2rem; margin-bottom: 2rem;">
+            <h3 class="panel-title">My Transactions</h3>
+            <div id="customerTransactionHistory" class="transaction-history">
+                <!-- Transactions will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Transfer to Admin -->
+        <div class="mirror-container" style="padding: 2rem;">
+            <h3 class="panel-title">Transfer to Admin Account</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">
+                Send funds to Adegan Global Enterprise Admin Account: 0000000000
+            </p>
+            <form id="transferToAdminForm">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label">Amount (₦)</label>
+                    <input type="number" id="adminTransferAmount" class="form-input" required placeholder="Enter amount">
+                </div>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label">Purpose</label>
+                    <input type="text" id="adminTransferPurpose" class="form-input" required placeholder="Transfer purpose">
+                </div>
+                <button type="submit" class="cta-button" style="width: 100%;">Transfer to Admin</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Admin Button -->
+    <button id="contactAdminBtn" class="contact-admin-btn" onclick="handleContactAdmin()">
+        Contact Admin
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2024 Adegan Global Enterprise. All rights reserved.</p>
+        <p class="footer-text">Customer Dashboard</p>
+        <a href="mailto:adegan95@gmail.com" class="footer-link">Contact: adegan95@gmail.com</a>
+    </footer>
+
+    <script>
+        // Image preview functionality
+        function previewImage(event) {
+            const input = event.target;
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.getElementById('productImage');
+                    const placeholder = document.getElementById('imagePlaceholder');
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Load customer data
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('adegan_currentUser'));
+            if (currentUser) {
+                document.getElementById('customerName').textContent = currentUser.name;
+                document.getElementById('email').textContent = currentUser.email;
+                document.getElementById('phone').textContent = currentUser.phone;
+                document.getElementById('address').textContent = currentUser.address;
+                document.getElementById('accountNumber').textContent = currentUser.accountNumber;
+                document.getElementById('serialNumber').textContent = currentUser.serialNumber;
+                document.getElementById('balance').textContent = '₦' + parseFloat(currentUser.balance).toLocaleString('en-NG');
+                document.getElementById('accountBalance').textContent = '₦' + parseFloat(currentUser.balance).toLocaleString('en-NG');
+                
+                if (currentUser.createdAt) {
+                    document.getElementById('memberSince').textContent = new Date(currentUser.createdAt).getFullYear();
+                }
+
+                if (currentUser.photo) {
+                    document.getElementById('profileImage').src = currentUser.photo;
+                }
+            }
+
+            // Load products
+            const products = JSON.parse(localStorage.getItem('adegan_products')) || [];
+            const myProducts = products.filter(p => p.ownerEmail === (currentUser ? currentUser.email : ''));
+            document.getElementById('myProducts').textContent = myProducts.length;
+
+            // Update my products grid
+            const myProductsGrid = document.getElementById('myProductsGrid');
+            myProductsGrid.innerHTML = '';
+            myProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image" style="background-image: url('${product.image || 'https://via.placeholder.com/300x250?text=Product+Image'}'); background-size: cover; background-position: center;"></div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.name}</h3>
+                        <p class="product-price">₦${parseFloat(product.price).toLocaleString('en-NG')}</p>
+                        <p style="color: var(--text-secondary);">${product.category}</p>
+                    </div>
+                `;
+                myProductsGrid.appendChild(productCard);
+            });
+        });
+
+        // Transfer to admin form handler
+        document.getElementById('transferToAdminForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const amount = parseFloat(document.getElementById('adminTransferAmount').value);
+            const purpose = document.getElementById('adminTransferPurpose').value;
+            
+            showNotification(`Transfer of ₦${amount.toLocaleString('en-NG')} to admin initiated. Purpose: ${purpose}`, 'success');
+            this.reset();
+        });
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>
